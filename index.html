@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOCUS-X</title>
+    <link rel="stylesheet" href="./assets/css/style.css"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="inner">
+                <h1 class="logo-area">
+                    <a href="" class="logo"><img src="./assets/images/logo.svg" alt="locus-x 로고"></a>
+                </h1>
+                <div class="menu-area">
+                    <button type="button" class="btn-menu">
+                            <div class="text-box">
+                                <span class="text menu">menu</span>
+                                <span class="text open">open</span>
+                                <span class="text close">close</span>
+                            </div>
+                            <div class="icon-box">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <div class="gnb">
+            <div class="gnb-bg"></div>
+            <div class="inner">
+                <nav class="gnb-area">
+                    <ul class="gnb-list">
+                        <li class="gnb-item">
+                            <div class="overflow">
+                                <a href="" class="link-gnb pointer-event">ABOUT</a>
+                            </div>
+                        </li>
+                        <li class="gnb-item">
+                            <div class="overflow">
+                                <a href="" class="link-gnb pointer-event">V.ARTIST</a>
+                            </div>
+                        </li>
+                        <li class="gnb-item">
+                            <div class="overflow">
+                                <a href="" class="link-gnb pointer-event">PROJECTS</a>
+                            </div>
+                        </li>
+                        <li class="gnb-item">
+                            <div class="overflow">
+                                <a href="" class="link-gnb pointer-event">NEWS</a>
+                            </div>
+                        </li>
+                        <li class="gnb-item">
+                            <div class="overflow">
+                                <a href="" class="link-gnb pointer-event">AUDITION</a>
+                            </div>
+                        </li>
+                        <li class="gnb-item">
+                            <div class="overflow">
+                                <a href="" class="link-gnb pointer-event">CONTACT</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="widget-area">
+                    <a href="">LOCUS · LOCUS VFX · LOCUS Animation · SIDUS</a>
+                    <span>© 2023 LOCUS-X Inc. All rights reserved. Creat</span>
+                </div>
+            </div>
+        </div>
+        <main class="container">
+            <!-- VISUAL -->
+            <section class="sc-visual">
+                <h2 class="blind">비주얼영역</h2>
+                <video src="./assets/images/visual.mp4" class="bg-video" autoplay loop muted></video>
+                <div class="text-box">
+                    <span class="visual-oh"><span class="text">Enter the metaverse</span></span>
+                    <span class="visual-oh"><span class="text">universe beyond virtual</span></span>
+                    <span class="visual-oh"><span class="text">reality, LOCUS-X</span></span>
+                </div>
+                <a href="#brand" role="button" class="btn-scroll pointer-event">
+                    <span class="text">scroll</span>
+                    <span class="change">↓</span>
+                </a>
+            </section>
+            <!-- BRAND -->
+            <section class="sc-brand" id="brand">
+                <h2 class="blind">LOCUS-X 브랜드소개</h2>
+                <div class="group-brand brand1">
+                    <div class="inner">
+                        <div class="text-box">
+                            <strong class="eng">
+                                <span class="overflow"><span class="text">Virtual humans</span></span>
+                                <span class="overflow"><span class="text">beyond time and</span></span>
+                                <span class="overflow"><span class="text">space, LOCUS-X</span></span>
+                            </strong>
+                            <p class="overflow kr">
+                                <span class="text">시공간을 초월한 버추얼 휴먼, LOCUS-X</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-brand brand2">
+                    <div class="inner">
+                        <div class="text-box">
+                            <strong class="eng">
+                                <span class="overflow"><span class="text">Virtual humans </span></span>
+                                <span class="overflow"><span class="text">beyond anyone's</span></span>
+                                <span class="overflow"><span class="text">imagination, LOCUS-X</span></span>
+                            </strong>
+                            <p class="overflow kr">
+                                <span class="text">모든 상상을 현실로 버추얼 휴먼, LOCUS-X</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-brand brand3">
+                    <div class="inner">
+                        <div class="text-box">
+                            <strong class="eng">
+                                <span class="overflow"><span class="text">Virtual humans</span></span>
+                                <span class="overflow"><span class="text">beyond human</span></span>
+                                <span class="overflow"><span class="text">communication,</span></span>
+                            </strong>
+                            <p class="overflow kr">
+                                <span class="text">인간의 소통을 초월한 버추얼 휴먼, LOCUS-X</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- INTRO -->
+            <section class="sc-intro">
+                <h2 class="blind">LOCUS-X 버츄얼 휴먼 소개</h2>
+                <div class="group-intro">
+                    <div class="column left">
+                        <div class="img-area">
+                            <!-- 애니메이션용 bg -->
+                            <span class="bg"></span>
+                            <div class="img-box"><img src="./assets/images/intro1.jpg" alt="버추얼 인플루언서 로지" data-x="80"></div>
+                        </div>
+                    </div>
+                    <div class="column right">
+                        <div class="text-area">
+                            <p class="overflow title-desc"><span class="text">Korea's First Virtual Influencer</span></p>
+                            <h3 class="overflow title"><span class="text">ROZY</span></h3>
+                            <div class="desc">
+                                <span class="overflow"><span class="text">안녕하세요.👋 대한민국 최초의 버추얼 인플루언서 ‘로지’에요.</span></span>
+                                <span class="overflow"><span class="text">본명은 오직 단 한 사람☝이란 뜻의 순수 한글 이름인 ‘오로지’ 입니다.</span></span>
+                                <span class="overflow"><span class="text">나이는 영원한 2️⃣2️⃣살! 인간👫, 패션💍, 환경🌏을 사랑하는 로지의 일상</span></span> 
+                                <span class="overflow"><span class="text">지금 만나보실래요?🔜🫶🏻</span></span>
+                            </div>
+                        </div>
+                        <div class="btn-area">
+                            <a href="" class="link-more pointer-event">
+                                <span class="text">eXplore V.Artist</span>
+                                <span class="change">EXplore V.Artist</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-intro">
+                    <div class="column left">
+                        <div class="img-area">
+                            <!-- 애니메이션용 bg -->
+                            <span class="bg"></span>
+                            <div class="img-box"><img src="./assets/images/intro2.jpg" alt="버추얼 패밀리 호곤해일"  data-x="-80"></div>
+                        </div>
+                    </div>
+                    <div class="column right">
+                        <div class="text-area">
+                            <p class="overflow title-desc"><span class="text">Mischief & Hip, Virtual Family</span></p>
+                            <h3 class="overflow title"><span class="text">HOGONHEIL</span></h3>
+                            <div class="desc">
+                                <span class="overflow"><span class="text">안녕하세요 🙋‍♀️🙋🙋‍♂️대한민국 최초의 버추얼 패밀리 호곤해일이에요!</span></span>
+                                <span class="overflow"><span class="text">🦸‍♂️🦸🦸‍♀️ 쌍둥이 남동생이 있는 우리 3️⃣남매는 매일매일이</span></span>
+                                <span class="overflow"><span class="text">스펙타클🔥하고 버라이어티🚨해요.</span></span> 
+                                <span class="overflow"><span class="text">우리의 재미있고 엉뚱🌀하고 라이브한 일상을 공유할게요.</span></span>
+                                <span class="overflow"><span class="text">📸✨우리와 함께해요🤟❤️‍🔥</span></span>
+                            </div>
+                        </div>
+                        <div class="btn-area">
+                            <a href="" class="link-more pointer-event">
+                                <span class="text">eXplore V.Artist</span>
+                                <span class="change">EXplore V.Artist</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-intro">
+                    <div class="column left">
+                        <div class="img-area">
+                            <!-- 애니메이션용 bg -->
+                            <span class="bg"></span>
+                            <div class="img-box"><img src="./assets/images/intro3.jpg" alt="버추얼 휴먼 류이드" data-x="80"></div>
+                        </div>
+                    </div>
+                    <div class="column right">
+                        <div class="text-area">
+                            <p class="overflow title-desc"><span class="text">Multi Persona</span></p>
+                            <h3 class="overflow title"><span class="text">RYU-ID</span></h3>
+                            <div class="desc">
+                                <span class="overflow"><span class="text">안녕하세요. 류이드에요. 👋 제 이름은 끝없이 새로운 아이디𝕀𝔻를</span></span>
+                                <span class="overflow"><span class="text">만들어간다는 뜻이고, 그래서 항상 인간👫을 공부합니다.</span></span>
+                                <span class="overflow"><span class="text">인간의 모든 영역💖🎶🌈☔️🍕🍷⚽️✈️🎡📷을 다</span></span> 
+                                <span class="overflow"><span class="text">업데이트✏️하는 그날까지 여러분도 많이 응원👏해주세요.</span></span>
+                            </div>
+                        </div>
+                        <div class="btn-area">
+                            <a href="" class="link-more pointer-event">
+                                <span class="text">eXplore V.Artist</span>
+                                <span class="change">EXplore V.Artist</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+            <!-- PROJECT -->
+            <section class="sc-project">
+                <h2 class="blind">LOCUS-X 프로젝트</h2>
+                <div class="wrap">
+                    <div class="group-list title">
+                        <div class="text-box headline">
+                            <strong class="overflow"><span class="text">Selected</span></strong>
+                            <strong class="overflow"><span class="text">Projects</span></strong>
+                        </div>
+                    </div>
+                    <div class="group-list">
+                        <div class="text-box">
+                            <span class="word">TVC with ROZY</span>
+                            <h3><a href="" class="link-view pointer-event" data-section="Project">Shinhan Life 1539 로지종신보험</a></h3>
+                        </div>
+                        <div class="img-area">
+                            <!-- 애니메이션용 bg -->
+                            <span class="bg"></span>
+                            <div class="img-box"><video src="./assets/images/project1.mp4" alt="신한 로지종신보험 광고" autoplay loop muted></video></div>
+                        </div>
+                    </div>
+                    <div class="group-list">
+                        <div class="text-box">
+                            <span class="word">TVC with RYU-ID</span>
+                            <h3><a href="" class="link-view pointer-event">Lotte Chilsung ZEROLIFE TV</a></h3>
+                        </div>
+                        <div class="img-area">
+                            <!-- 애니메이션용 bg -->
+                            <span class="bg"></span>
+                            <div class="img-box"><video src="./assets/images/project2.mp4" alt="롯데 칠성 제로라이프 류이드 광고" autoplay loop muted></video></div>
+                        </div>
+                    </div>
+                    <div class="group-list">
+                        <div class="text-box">
+                            <span class="word">TVC with ROZY</span>
+                            <h3><a href="" class="link-view pointer-event">The new Volvo C40 Recharge</a></h3>
+                        </div>
+                        <div class="img-area">
+                            <!-- 애니메이션용 bg -->
+                            <span class="bg"></span>
+                            <div class="img-box"><video src="./assets/images/project3.mp4" alt="볼보 C40 로지 광고" autoplay loop muted></video></div>
+                        </div>
+                    </div>
+                    <div class="group-list">
+                        <div class="text-box">
+                            <span class="word">TVC with ROZY</span>
+                            <h3><a href="" class="link-view pointer-event">PANDORA</a></h3>
+                        </div>
+                        <div class="img-area">
+                            <!-- 애니메이션용 bg -->
+                            <span class="bg"></span>
+                            <div class="img-box"><img src="./assets/images/project4.jpg" alt="로지 판도라 광고"></img></div>
+                        </div>
+                    </div>
+                    <div class="group-list">
+                        <div class="text-box">
+                            <span class="word">TVC with ROZY</span>
+                            <h3><a href="" class="link-view pointer-event">Calvin Klein</a></h3>
+                        </div>
+                        <div class="img-area">
+                            <!-- 애니메이션용 bg -->
+                            <span class="bg"></span>
+                            <div class="img-box"><img src="./assets/images/project5.jpg" alt="로지 캘빈클라인 광고"></img></div>
+                        </div>
+                    </div>
+                    <div class="group-list">
+                        <div class="text-box">
+                            <span class="word">TVC with ROZY</span>
+                            <h3><a href="" class="link-view pointer-event">JILL by JILLSTUART</a></h3>
+                        </div>
+                        <div class="img-area">
+                            <!-- 애니메이션용 bg -->
+                            <span class="bg"></span>
+                            <div class="img-box"><img src="./assets/images/project6.jpg" alt="로지 질스튜어트 광고"></img></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- News -->
+            <section class="sc-news" data-section="News">
+                <div class="inner">
+                    <h2 class="headline">
+                        <span class="overflow"><span class="text">Lastest News</span></span>
+                    </h2>
+                    <ul class="news-list">
+                        <li class="news-item">
+                            <div class="img-area">
+                                <img src="./assets/images/news1.jpg" alt="2022 케이블TV방송대상 스타상 ROZY">
+                            </div>
+                            <div class="text-area">
+                                <div class="date-box">
+                                    <span class="date">01 Dec 2022</span>
+                                </div>
+                                <div class="title-box">
+                                    <em class="cate">Media</em>
+                                    <a href="" class="link-view pointer-event"><h3 class="title">버추얼 휴먼 ROZY, 2022 케이블TV방송대상 스타상 영예</h3></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="news-item">
+                            <div class="img-area">
+                                <img src="./assets/images/news2.jpg" alt="디자인코리아 2022 홍보대사 선정 ROZY">
+                            </div>
+                            <div class="text-area">
+                                <div class="date-box">
+                                    <span class="date">01 Dec 2022</span>
+                                </div>
+                                <div class="title-box">
+                                    <em class="cate">Media</em>
+                                    <a href="" class="link-view pointer-event"><h3 class="title">가상 인플루언서 ROZY, 디자인코리아 2022 홍보대사</h3></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="news-item">
+                            <div class="img-area">
+                                <img src="./assets/images/news3.jpg" alt="ROZY 친환경 브랜드 TZRZ 이미지">
+                            </div>
+                            <div class="text-area">
+                                <div class="date-box">
+                                    <span class="date">01 Dec 2022</span>
+                                </div>
+                                <div class="title-box">
+                                    <em class="cate">Media</em>
+                                    <a href="" class="link-view pointer-event"><h3 class="title">신세계 시코르 등, 버추얼 휴먼 ROZY 활용 친환경 브랜드 TZRZ 선보여</h3></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="news-item">
+                            <div class="img-area">
+                                <img src="./assets/images/news4.jpg" alt="RYU-ID 서울 패션위크 앰버서더 이미지">
+                            </div>
+                            <div class="text-area">
+                                <div class="date-box">
+                                    <span class="date">01 Dec 2022</span>
+                                </div>
+                                <div class="title-box">
+                                    <em class="cate">Media</em>
+                                    <a href="" class="link-view pointer-event"><h3 class="title">국내 첫 버추얼 패션모델 RYU-ID, 서울패션위크 디지털 앰버서더 발탁</h3></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-area">
+                    <a href="" class="link-more pointer-event">
+                        <span class="text">More News</span>
+                        <span class="change">All News</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div class="cursor">
+        <div class="pointer"></div>
+    </div>
+</body>
+</html>

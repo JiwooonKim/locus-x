@@ -1,0 +1,294 @@
+.inner { padding: 0 120px; }
+
+.sc-visual {
+    position: relative;
+    height: 100vh;
+
+    .inner { position: relative; height: 100vh; }
+    
+    .bg-video { 
+        position: absolute;
+        top: 50%; transform: translateY(-50%);
+        width: 100%; height: 100%;
+        object-fit: cover
+    }
+    .text-box {
+        @include fontSet-xl;
+        @include positionCenter;
+        width: 100%;
+        font-size: 104px;
+        font-weight: 200;
+
+    .visual-oh { display: block; position: relative; overflow: hidden; text-align: center;  }
+    .visual-oh .text { display: block; transform: translateY(100%); }
+    }
+}
+
+.sc-brand {
+    .group-brand {
+        @include flexVerticalCenter;
+        height: 100vh;
+
+        &.brand1 {
+            @include bg('../images/home_rozy.png');
+            background-color: #13374B;
+            background-position: top right;
+            background-size: cover;
+        }
+        &.brand2 {
+            @include bg('../images/home_hogonheil.png');
+            background-color:#B0CFD4;;
+            background-position: bottom left;
+            background-size: contain;
+        }
+        &.brand3 {
+            @include bg('../images/home_ryuid.jpg');
+            background-color:#E1ECED;;
+            background-position: bottom right;
+            background-size: contain;
+            color: $body-bg-color;
+        }
+        &:nth-child(2n+1){
+            justify-content: end;
+            text-align: right;
+        }
+        .eng {
+            font-size: 46px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        .kr {
+            font-size: 21px;
+            font-weight: 600;
+            letter-spacing: 0em;
+            line-height: 1.3;
+            margin-top: 20px;
+        }
+    }
+}
+
+.sc-intro {
+    width: 100%;
+    background-color: $body-bg-color;
+
+    .group-intro {
+        @include flexVerticalCenter;
+        height: 480px;
+        overflow: hidden;
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            width: 50%; 
+            height: 100%;
+        }
+        .column.right { 
+            @include flexHorizonCenter;
+            padding: 7vw;
+        }
+
+        .img-area {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+        .bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 102%;
+            height: 100%;
+            background: #000;
+            z-index: 2;
+        }
+        .img-box {
+            position: absolute;
+            top: 0; right: 0;
+            width: 100%; height: 100%;
+        }
+        .img-area img {
+            display: block;
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .text-area {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .title {
+            font-size: 80px;
+            font-weight: 600;
+        }
+        .title-desc {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .desc {
+            @include desc1;
+        } 
+    }
+    .group-intro:nth-child(2n+1) {
+        flex-direction: row-reverse;
+
+        .img-area .img-box {
+            position: absolute;
+            top: 0; left: 0;
+        }
+        .bg { left: inherit; right: 0; }
+    }
+}
+
+// headline
+.headline { @include title2; }
+
+.sc-project {
+    .wrap {
+        display: flex;
+        height: 100vh;
+        background-color: $bg-color-dark-1;
+        overflow-x: hidden;
+    }
+    .group-list {
+        @include flexVerticalCenter;
+        @include imgAfter;
+        @include imgHover;
+
+        position: relative;
+        width: 50%;
+
+        .text-box {
+            @include positionVerticalCenter;
+            @include inner;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            z-index: 2;
+        }
+        .img-area {
+            position: relative;
+            overflow: hidden;
+            width: 100%; height: 100vh;
+        }
+        .bg {
+            position: absolute;
+            top: 0; right: 0;
+            width: 102%;
+            height: 100%;
+            background: #000;
+            z-index: 2;
+        }
+        .img-box {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+        }
+        .img-area video, .img-area img {
+            display: block;
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        img { object-position: center 20%; }
+        a {
+            @include title3;
+            @include linkHover;
+
+            position: relative;
+        }
+        .word { 
+            font-size: 13px; 
+            line-height: 1.2em;
+            margin-bottom: 1.2em;
+            font-weight: bold;
+        }
+    }
+}
+
+.sc-news {
+    background-color: $body-bg-color;
+    padding-top: 130px;
+    padding-bottom: 180px;
+
+    .headline { padding-bottom: 100px; }
+    .news-item {
+        @include flexVerticalCenter;
+        @include imgHover;
+
+        position: relative;
+        height: 319px;
+        border-top: 1px solid #444;
+        transform: translateY(100%);
+
+        &:hover .img-area::after {
+            visibility: inherit;
+            opacity: 0.6;
+        }
+        .link-view::after {
+            position: absolute;
+            content: '';
+            bottom: 0 ; left: 0;
+            display: inline-block;
+            background-image: linear-gradient(#fff, #fff);
+            background-position: 100% 100%;
+            background-repeat: no-repeat;
+            background-size: 100% 1px;
+            width: auto; height: 2px;
+        }
+        &:hover .link-view:hover::after {
+            text-decoration: underline;
+            text-underline-position: under;
+            transform: scaleX(100%);
+        }
+
+        &:last-child { border-bottom: 1px solid #444; }
+    }
+    .img-area {
+        @include imgAfter;
+        position: relative;
+        width: 320px;
+        height: 100%;
+        transition: 0.4s;
+        
+        img { object-fit: cover; width: 100%; height: 100%; }
+    }
+    .btn-area { text-align: center; }
+    .text-area {
+        @include flexVerticalCenter;
+        position: absolute;
+        width: 100%;
+        padding: 0 20px;
+        z-index: 20;
+
+        .date-box { width: 350px; }
+        .date { padding: 0 10px; font-weight: bold; font-family: Pretendard, sans-serif; }
+
+        .title-box {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+        .cate {
+            display: block;
+            color: #ccc;
+            margin-bottom: 8px;
+        }
+        .link-view { 
+            @include title3;
+            position: relative;
+        }
+        .link-view .title {
+            display: inline;
+            position: relative;
+            background-size: 0% 0.07em;
+            background-position: 100% 100%;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(#fff, #fff);
+            transition: background-size 0.4s ease;
+        }
+        .link-view .title:hover {
+            background-size: 100% 0.07em;
+            background-position: 0% 100%;
+        }
+    }
+}

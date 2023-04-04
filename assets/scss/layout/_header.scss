@@ -1,0 +1,143 @@
+.header {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    padding-top: 66px;
+    z-index: 50;
+    mix-blend-mode: difference;
+    transition: 0.3s;
+
+    &.on { padding-top: 10px; }
+
+    .inner {
+        @include flexVerticalCenter;
+
+        justify-content: space-between;
+        height: 60px;
+    }
+    .logo-area {
+        width: auto;
+
+        .logo { display: block; height: 100%; }
+        .logo img { height: 52px; }
+    }
+    .menu-area { position: relative; }
+    .btn-menu {
+        @include flexVerticalCenter;
+        position: relative;
+        cursor: none;
+
+        &.on {
+            .icon-box .line { transition: all 0.3s; }
+            .icon-box .line:first-child {
+                transform: scaleX(1) rotate(45deg) translate(2px, 2px);
+            }
+            .icon-box .line:last-child {
+                transform: scaleX(1) rotate(-45deg) translate(3px, -2px);
+            }
+        }
+        &.on:hover {
+            .text-box { transform: translate(-30px);}
+            .menu {transform: translateY(-100%); opacity: 0;}
+            .open {transform: translateY(-100%); opacity: 0;}
+            .close {transform: translateY(-200%); opacity: 1;}
+        }
+        
+        &:hover {
+            .text-box { transform: translateX(-30px);}
+            .menu {transform: translateY(-100%); opacity: 0;}
+            .open {transform: translateY(-100%); opacity: 1;}
+        }
+        .text-box {
+            display: flex;
+            position: absolute;
+            left: -50px;
+            flex-direction: column;
+            width: 43px; height: 14px;
+            color: $body-font-color;
+            overflow: hidden;
+            transition: all 0.3s;
+            pointer-events: none;
+        }
+        .text {
+            font-family: 'Pretendard';
+            font-weight: bold;
+            transition: 0.4s;
+            font-size: 14px;
+        }
+        .open {  opacity: 0; }
+        .close { opacity: 0; }
+        .icon-box {
+            @include flexCenter;
+            flex-direction: column;
+            overflow: hidden;
+            width: 50px; height: 50px;
+        }
+        .icon-box .line {
+            display: block;
+            width: 26px; height: 2px;
+            background: $body-font-color;
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+    }
+}
+.gnb {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    overflow-y: scroll;
+    visibility: hidden;
+
+    .gnb-bg {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 0;
+        background: #000;
+    }
+
+    .gnb-area { height: 100%; }
+
+    .gnb-area { display: flex; flex-direction: column; }
+    .gnb-list {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 40px;
+        height: 100%;
+        margin-top: 50px;
+        font-size: 85px;
+        font-weight: bold;
+    }
+    .gnb-item {
+        width: 50%;
+        height: 100px;
+
+        .overflow {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 100%; height: 100%;
+        }
+        .link-gnb {
+            @include linkHover($height: 5px);
+            display: block;
+            position: absolute;
+        }
+    }
+    .widget-area {
+        display: flex;
+        position: relative;
+        margin-top: 51px;
+        z-index: 40;
+        opacity: 0;
+
+        span { flex:1; }
+        a { flex:1; }
+    }
+}
+
+

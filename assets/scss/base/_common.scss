@@ -1,0 +1,61 @@
+
+html { scroll-behavior: smooth; }
+
+/* STYLE */
+.blind {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+}
+
+.overflow { display: block; position: relative; overflow: hidden; }
+.overflow .text { display: block; transform: translateY(100%);}
+
+.removeScroll { overflow-y: hidden; }
+
+.cursor {
+    position: fixed;
+    z-index: 50;
+    pointer-events: none;
+    mix-blend-mode: difference;
+
+    &.zoom-sm { mix-blend-mode: inherit; }
+    
+    &.view  { mix-blend-mode: inherit; }
+    
+    .pointer {
+        position: absolute;
+        top: 0; left: 0;
+        transform: translate(-50%, -50%);
+        width: 50px; height: 50px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        transition: 0.3s;
+    }
+    &.zoom-sm .pointer { width: 80px; height: 80px;  }
+    &.zoom .pointer { width: 130px; height: 130px; }
+    &.view .pointer {
+        position: relative;
+        width: 130px; height: 130px;
+        line-height: 130px;
+        background: #fff;
+        border: 0;
+        cursor: none;
+        mix-blend-mode:normal;
+        color: #000;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+        overflow: hidden;
+    }
+    &.blend .pointer {
+        width: 80px; height: 80px;
+        mix-blend-mode: difference;
+        background: #fff;
+        border: 0;
+    }
+}
+
+

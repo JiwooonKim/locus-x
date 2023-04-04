@@ -1,0 +1,125 @@
+@mixin inner {
+    padding: 0 120px;
+}
+
+// STYLE
+@mixin title2 {
+    font-size: 68px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+@mixin title3 {
+    font-size: 29px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+}
+@mixin desc1 {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.8;
+} 
+@mixin fontSet-xl {
+    letter-spacing: 0em;
+    line-height: 1.15;
+}
+
+// HOVER
+@mixin imgAfter {
+    &::after {
+        visibility: hidden;
+        opacity: 0;
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: $body-bg-color;
+        z-index: 1;
+        transition: 0.3s;
+    }
+}
+@mixin imgHover {
+    &:hover::after {
+        visibility: visible;
+        opacity: 0.6;
+    }
+}
+@mixin linkHover($height: 2px) {
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0; right: 0;
+        height: $height; width: 0;
+        background-color: $body-font-color;
+        transition: 0.3s;
+    }
+    &:hover::after {
+        width: 100%;
+        left: 0;
+    }
+}
+@mixin btnHover {
+    &:hover {
+        .text { transform: translateY(-100%); opacity: 0; }
+        .change { transform: translate(-50%, 0); opacity: 1; }
+    }
+    
+    span { display:inline-block; transition: all 0.3s; }
+    
+    .change {
+        @include positionHorizonCenter;
+        display: inline-block;
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+}
+
+// LOCATION
+@mixin flexCenter() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flexVerticalCenter() {
+    display: flex;
+    align-items: center;
+}
+@mixin flexHorizonCenter() {
+    display: flex;
+    justify-content: center;
+}
+@mixin positionCenter {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+@mixin positionVerticalCenter() {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+@mixin positionHorizonCenter() {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+// 줄임
+@mixin bg($path) {
+    background-image: url('#{$path}');
+    background-repeat: no-repeat;
+}
+
+/* RESPONSIVE */
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
