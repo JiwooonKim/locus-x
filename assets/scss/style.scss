@@ -1,9 +1,17 @@
-@import './utils/mixins';
-@import './utils/variables';
+// utils
+@import './abstracts/mixins';
+@import './abstracts/variables';
 
+// base
 @import './base/typography';
 @import './base/reset';
-
 @import './base/common';
-@import './page/home';
+
+// layout
+@import './layout/header';
+
+// components
 @import './components/buttons';
+
+// page
+@import './page/home';

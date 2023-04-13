@@ -149,11 +149,9 @@ $(function(){
 
     // SC-INTRO 스크롤 시 이미지 움직이는 모션
     imgList = document.querySelectorAll('.sc-intro .img-area img');
-    console.log(imgList)
     gsap.set('.sc-intro .img-area img', { scale: 1.3})
     imgList.forEach(element => {
         xValue = element.dataset.x;
-        console.log(xValue);
         gsap.to(element, {
             scrollTrigger: {
                 trigger: element.parentElement,
@@ -178,7 +176,6 @@ $(function(){
 
     // lastest News 차례대로 올라오는 모션
     newsList = document.querySelectorAll('.news-item');
-    console.log(newsList);
     newsList.forEach(element => {
         gsap.to(element, {
             scrollTrigger: {
