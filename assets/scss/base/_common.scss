@@ -1,5 +1,16 @@
 
-html { scroll-behavior: smooth; }
+html { 
+    scroll-behavior: smooth; 
+    font-size: 62.5%;
+}
+
+body { overflow-x: hidden; }
+
+/* LAYOUT */ 
+.inner { 
+    padding: 0 120px; 
+    @include tablet { padding: 0 20px;}
+}
 
 /* STYLE */
 .blind {
@@ -31,7 +42,7 @@ html { scroll-behavior: smooth; }
         transform: translate(-50%, -50%);
         width: 50px; height: 50px;
         border-radius: 50%;
-        border: 2px solid #fff;
+        border: 2px solid $color-white;
         transition: 0.3s;
     }
     &.zoom-sm .pointer { width: 80px; height: 80px;  }
@@ -40,20 +51,20 @@ html { scroll-behavior: smooth; }
         position: relative;
         width: 130px; height: 130px;
         line-height: 130px;
-        background: #fff;
+        background: $color-white;
         border: 0;
         cursor: none;
         mix-blend-mode:normal;
-        color: #000;
+        color: $color-black;
         text-align: center;
         font-weight: bold;
-        font-size: 14px;
+        font-size: $font-size-sm2;
         overflow: hidden;
     }
     &.blend .pointer {
         width: 80px; height: 80px;
         mix-blend-mode: difference;
-        background: #fff;
+        background: $color-white;
         border: 0;
     }
 }

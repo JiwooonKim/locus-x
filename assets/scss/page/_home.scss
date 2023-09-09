@@ -1,5 +1,7 @@
-.inner { padding: 0 120px; }
-
+.br-mb {
+    display: none;
+    @include mobile { display: block; }
+}
 .sc-visual {
     position: relative;
     height: 100vh;
@@ -13,13 +15,20 @@
         object-fit: cover
     }
     .text-box {
-        @include fontSet-xl;
         @include positionCenter;
         width: 100%;
-        font-size: 104px;
+        font-size: min(8vw, 100px);
+        letter-spacing: 0em;
+        line-height: 1.2em;
         font-weight: 200;
+        @include mobile { font-size: 12.4vw; }
 
-    .visual-oh { display: block; position: relative; overflow: hidden; text-align: center;  }
+    .visual-oh { 
+        display: block; 
+        position: relative; 
+        overflow: hidden; 
+        text-align: center;  
+    }
     .visual-oh .text { display: block; transform: translateY(100%); }
     }
 }
@@ -28,6 +37,10 @@
     .group-brand {
         @include flexVerticalCenter;
         height: 100vh;
+        @include mobile {
+            align-items: flex-end;
+            padding-bottom: 60px;
+        }
 
         &.brand1 {
             @include bg('../images/home_rozy.png');
@@ -46,23 +59,23 @@
             background-color:#E1ECED;;
             background-position: bottom right;
             background-size: contain;
-            color: $body-bg-color;
+            color: $color-black;
         }
         &:nth-child(2n+1){
             justify-content: end;
             text-align: right;
+            @include tablet {
+                justify-content: flex-start;
+                text-align: left;
+            }
         }
         .eng {
-            font-size: 46px;
+            @include fontSet($font-size-lg3);
             font-weight: 400;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
         }
         .kr {
-            font-size: 21px;
+            @include fontSet($font-size-md2);
             font-weight: 600;
-            letter-spacing: 0em;
-            line-height: 1.3;
             margin-top: 20px;
         }
     }
@@ -70,24 +83,28 @@
 
 .sc-intro {
     width: 100%;
-    background-color: $body-bg-color;
+    background-color: $color-black;
 
     .group-intro {
         @include flexVerticalCenter;
         height: 480px;
         overflow: hidden;
+        @include tablet {
+            height: 100%;
+            flex-direction: column;
+        }
 
         .column {
             display: flex;
             flex-direction: column;
             width: 50%; 
             height: 100%;
+            @include tablet { width: 100%; }
         }
         .column.right { 
             @include flexHorizonCenter;
             padding: 7vw;
         }
-
         .img-area {
             position: relative;
             overflow: hidden;
@@ -105,6 +122,9 @@
             position: absolute;
             top: 0; right: 0;
             width: 100%; height: 100%;
+            @include tablet {
+                position: static;
+            }
         }
         .img-area img {
             display: block;
@@ -117,30 +137,37 @@
             gap: 20px;
         }
         .title {
-            font-size: 80px;
+            @include fontSet($font-size-lg1);
             font-weight: 600;
         }
         .title-desc {
-            font-size: 28px;
+            @include fontSet($font-size-md1);
             font-weight: 600;
         }
         .desc {
-            @include desc1;
+            @include fontSet($font-size-sm1);
+            font-weight: 600;
+            line-height: 1.6em;
         } 
     }
     .group-intro:nth-child(2n+1) {
         flex-direction: row-reverse;
+        @include tablet { flex-direction: column; }
 
         .img-area .img-box {
             position: absolute;
             top: 0; left: 0;
+            @include tablet { position: static; }
         }
         .bg { left: inherit; right: 0; }
     }
 }
 
 // headline
-.headline { @include title2; }
+.headline { 
+    @include fontSet($font-size-lg2);
+    font-weight: bold;
+}
 
 .sc-project {
     .wrap {
@@ -148,15 +175,25 @@
         height: 100vh;
         background-color: $bg-color-dark-1;
         overflow-x: hidden;
+        @include tablet {
+            flex-direction: column;
+            height: auto;
+        }
     }
     .group-list {
         @include flexVerticalCenter;
         @include imgAfter;
         @include imgHover;
-
         position: relative;
         width: 50%;
+        @include tablet { width: 100%; }
 
+        &.title {
+            height: 100%;
+            @include tablet { padding: 100px 0; }
+
+            .text-box { position: static; transform: none}
+        }
         .text-box {
             @include positionVerticalCenter;
             @include inner;
@@ -164,6 +201,10 @@
             flex-direction: column;
             align-items: start;
             z-index: 2;
+            @include tablet {
+                padding: 0 20px;
+                width: 100%;
+            }
         }
         .img-area {
             position: relative;
@@ -190,14 +231,14 @@
         }
         img { object-position: center 20%; }
         a {
-            @include title3;
+            @include fontSet($font-size-md1);
             @include linkHover;
+            font-weight: 600;
 
             position: relative;
         }
         .word { 
-            font-size: 13px; 
-            line-height: 1.2em;
+            font-size: $font-size-sm3; 
             margin-bottom: 1.2em;
             font-weight: bold;
         }
@@ -205,7 +246,7 @@
 }
 
 .sc-news {
-    background-color: $body-bg-color;
+    background-color: $color-black;
     padding-top: 130px;
     padding-bottom: 180px;
 
@@ -213,11 +254,12 @@
     .news-item {
         @include flexVerticalCenter;
         @include imgHover;
-
         position: relative;
-        height: 319px;
+        height: 320px;
         border-top: 1px solid #444;
-        transform: translateY(100%);
+        @include tablet {
+            height: auto;
+        }
 
         &:hover .img-area::after {
             visibility: inherit;
@@ -248,8 +290,23 @@
         width: 320px;
         height: 100%;
         transition: 0.4s;
+        @include tablet { 
+            width: 100%;
+            height: auto;
+            padding-bottom: 100%;
+        }
         
-        img { object-fit: cover; width: 100%; height: 100%; }
+        img { 
+            object-fit: cover; 
+            width: 100%; 
+            height: 100%; 
+            @include tablet {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
     }
     .btn-area { text-align: center; }
     .text-area {
@@ -258,10 +315,18 @@
         width: 100%;
         padding: 0 20px;
         z-index: 20;
+        @include tablet {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
 
         .date-box { width: 350px; }
-        .date { padding: 0 10px; font-weight: bold; font-family: Pretendard, sans-serif; }
-
+        .date { 
+            font-size: $font-size-sm1;
+            font-weight: bold; 
+            font-family: Pretendard, sans-serif; 
+        }
         .title-box {
             display: flex;
             flex-direction: column;
@@ -269,12 +334,14 @@
             flex: 1;
         }
         .cate {
+            font-size: $font-size-sm3;
             display: block;
-            color: #ccc;
+            color: $color-white;
             margin-bottom: 8px;
         }
         .link-view { 
-            @include title3;
+            @include fontSet($font-size-md1);
+            font-weight: 600;
             position: relative;
         }
         .link-view .title {

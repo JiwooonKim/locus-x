@@ -2,16 +2,16 @@
     position: fixed;
     top: 0; left: 0;
     width: 100%;
-    padding-top: 66px;
+    padding-top: 7vh;
     z-index: 50;
     mix-blend-mode: difference;
     transition: 0.3s;
+    @include tablet { padding-top: 0; }
 
     &.on { padding-top: 10px; }
 
     .inner {
         @include flexVerticalCenter;
-
         justify-content: space-between;
         height: 60px;
     }
@@ -19,7 +19,10 @@
         width: auto;
 
         .logo { display: block; height: 100%; }
-        .logo img { height: 52px; }
+        .logo img { 
+            height: 52px; 
+            @include tablet { height: 32px; }
+        }
     }
     .menu-area { position: relative; }
     .btn-menu {
@@ -51,19 +54,18 @@
         .text-box {
             display: flex;
             position: absolute;
-            left: -50px;
+            left: -5rem;
             flex-direction: column;
-            width: 43px; height: 14px;
-            color: $body-font-color;
+            width: 4.3rem; height: 1.4rem;
             overflow: hidden;
             transition: all 0.3s;
             pointer-events: none;
         }
         .text {
             font-family: 'Pretendard';
+            font-size: $font-size-sm3;
             font-weight: bold;
             transition: 0.4s;
-            font-size: 14px;
         }
         .open {  opacity: 0; }
         .close { opacity: 0; }
@@ -76,7 +78,7 @@
         .icon-box .line {
             display: block;
             width: 26px; height: 2px;
-            background: $body-font-color;
+            background: $color-white;
             margin-top: 2px;
             margin-bottom: 2px;
         }
@@ -89,9 +91,11 @@
     height: 100%;
     z-index: 20;
     padding-top: 150px;
-    padding-bottom: 150px;
     overflow-y: scroll;
     visibility: hidden;
+    @include tablet {
+        padding-top: 30px;
+    }
 
     .gnb-bg {
         position: absolute;
@@ -104,18 +108,23 @@
 
     .gnb-area { display: flex; flex-direction: column; }
     .gnb-list {
+        @include fontSet($font-size-lg1);
         display: flex;
         flex-wrap: wrap;
+        column-gap: 20px;
         row-gap: 40px;
         height: 100%;
         margin-top: 50px;
-        font-size: 85px;
         font-weight: bold;
+        @include tablet { row-gap: 10px; }
     }
     .gnb-item {
-        width: 50%;
         height: 100px;
-
+        width: calc(50% - 10px);
+        @include tablet {
+            width: 100%;
+            height: 60px;
+        }
         .overflow {
             display: flex;
             align-items: center;
@@ -134,7 +143,12 @@
         margin-top: 51px;
         z-index: 40;
         opacity: 0;
-
+        font-size: $font-size-sm1;
+        @include tablet {
+            flex-direction: column;
+            font-size: $font-size-sm2;
+            gap: 10px;
+        }
         span { flex:1; }
         a { flex:1; }
     }
