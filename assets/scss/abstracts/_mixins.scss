@@ -6,19 +6,19 @@
     letter-spacing: 0em;
     line-height: 1.2em;
 
-    @include tablet {
-        @if ( $size == $font-size-lg1 ) {
-            font-size: calc($size - ($size * 0.23));
-        } @else if ( $size == $font-size-lg2 ) {
-            font-size: calc($size - 1.8rem);
-        } @else if ( $size == $font-size-lg3 ) {
-            font-size: calc($size - 1.4rem);
-        } @else if ( $size == $font-size-md1 ) {
-            font-size: calc($size - 0.4rem);
-        } @else if ( $size == $font-size-md2 ) {
-            font-size: calc($size - 0.6rem);
-        } 
-    }
+    // @include tablet {
+    //     @if ( $size == $font-size-lg1 ) {
+    //         font-size: calc($size - ($size * 0.23));
+    //     } @else if ( $size == $font-size-lg2 ) {
+    //         font-size: calc($size - 1.8rem);
+    //     } @else if ( $size == $font-size-lg3 ) {
+    //         font-size: calc($size - 1.4rem);
+    //     } @else if ( $size == $font-size-md1 ) {
+    //         font-size: calc($size - 0.4rem);
+    //     } @else if ( $size == $font-size-md2 ) {
+    //         font-size: calc($size - 0.6rem);
+    //     } 
+    // }
 }
 
 /* HOVER */
@@ -103,14 +103,10 @@
 
 /* RESPONSIVE */
 @mixin tablet {
-    @media (max-width: 1024px) {
-        @content;
-    }
+    @media (max-width: 1023px) { @content; }
 }
 @mixin mobile {
-    @media (max-width: 640px) {
-        @content;
-    }
+    @media (max-width: 767px) { @content; }
 }
 
 

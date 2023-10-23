@@ -1,13 +1,14 @@
 .header {
     position: fixed;
-    top: 0; left: 0;
+    top: 0; 
+    left: 0;
     width: 100%;
-    padding-top: 7vh;
+    padding-top: 50px;
     z-index: 50;
     mix-blend-mode: difference;
     transition: 0.3s;
-    @include tablet { padding-top: 0; }
-
+    @include tablet { padding-top: 10px; }
+    @include mobile { padding-top: 0; }
     &.on { padding-top: 10px; }
 
     .inner {
@@ -18,10 +19,13 @@
     .logo-area {
         width: auto;
 
-        .logo { display: block; height: 100%; }
-        .logo img { 
+        .logo { 
+            display: block; 
+            height: 100%; 
+        }
+        .logo-img { 
             height: 52px; 
-            @include tablet { height: 32px; }
+            @include mobile { height: 30px; }
         }
     }
     .menu-area { position: relative; }
@@ -29,28 +33,29 @@
         @include flexVerticalCenter;
         position: relative;
         cursor: none;
-
-        &.on {
-            .icon-box .line { transition: all 0.3s; }
-            .icon-box .line:first-child {
-                transform: scaleX(1) rotate(45deg) translate(2px, 2px);
-            }
-            .icon-box .line:last-child {
-                transform: scaleX(1) rotate(-45deg) translate(3px, -2px);
-            }
-        }
-        &.on:hover {
-            .text-box { transform: translate(-30px);}
-            .menu {transform: translateY(-100%); opacity: 0;}
-            .open {transform: translateY(-100%); opacity: 0;}
-            .close {transform: translateY(-200%); opacity: 1;}
-        }
-        
+        @include tablet { cursor: pointer; }
         &:hover {
             .text-box { transform: translateX(-30px);}
             .menu {transform: translateY(-100%); opacity: 0;}
             .open {transform: translateY(-100%); opacity: 1;}
+            @include tablet { .text-box { transform: translateX(0px);} }
         }
+        &.on {
+            .icon-box .line { 
+                transition: all 0.3s; 
+
+                &:first-child {  transform: scaleX(1) rotate(45deg) translate(2px, 2px); }
+                &:last-child { transform: scaleX(1) rotate(-45deg) translate(3px, -2px); }
+                &:hover {
+                    .text-box { transform: translateX(-30px); }
+                    .menu { transform: translateY(-100%); opacity: 0; }
+                    .open { transform: translateY(-100%); opacity: 0; }
+                    .close { transform: translateY(-200%); opacity: 1; }
+                    @include tablet { .text-box { transform: translateX(0px); } }
+                }
+            }
+        }
+
         .text-box {
             display: flex;
             position: absolute;
@@ -63,78 +68,90 @@
         }
         .text {
             font-family: 'Pretendard';
-            font-size: $font-size-sm3;
+            font-size: $font-size-body4;
             font-weight: bold;
             transition: 0.4s;
         }
-        .open {  opacity: 0; }
+        .open { opacity: 0; }
         .close { opacity: 0; }
         .icon-box {
             @include flexCenter;
             flex-direction: column;
+            width: 30px; 
+            height: 30px;
             overflow: hidden;
-            width: 50px; height: 50px;
         }
         .icon-box .line {
             display: block;
-            width: 26px; height: 2px;
-            background: $color-white;
+            width: 26px; 
+            height: 2px;
             margin-top: 2px;
             margin-bottom: 2px;
+            background: $color-white;
         }
     }
 }
 .gnb {
     position: fixed;
-    top: 0; left: 0;
+    top: 0; 
+    left: 0;
     width: 100%;
     height: 100%;
     z-index: 20;
     padding-top: 150px;
     overflow-y: scroll;
     visibility: hidden;
-    @include tablet {
-        padding-top: 30px;
-    }
 
+    .inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
     .gnb-bg {
         position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 0;
+        top: 0; 
+        left: 0;
+        width: 100%;
+        height: 0;
         background: #000;
     }
-
-    .gnb-area { height: 100%; }
-
-    .gnb-area { display: flex; flex-direction: column; }
+    .gnb-area { 
+        display: flex; 
+        flex-direction: column; 
+    }
     .gnb-list {
-        @include fontSet($font-size-lg1);
         display: flex;
         flex-wrap: wrap;
-        column-gap: 20px;
         row-gap: 40px;
         height: 100%;
-        margin-top: 50px;
-        font-weight: bold;
         @include tablet { row-gap: 10px; }
     }
     .gnb-item {
+        width: 50%;
         height: 100px;
-        width: calc(50% - 10px);
         @include tablet {
             width: 100%;
             height: 60px;
         }
+        @include mobile { height: 50px; }
+
         .overflow {
             display: flex;
             align-items: center;
             position: relative;
             width: 100%; height: 100%;
         }
-        .link-gnb {
-            @include linkHover($height: 5px);
-            display: block;
-            position: absolute;
+    }
+    .link-gnb {
+        @include linkHover($height: 5px);
+        display: block;
+        position: absolute;
+        font-size: $font-size-heading2;
+        font-weight: bold;
+        @include mobile {
+            @include linkHover($height: 3px);
+            font-size: 38px;
         }
     }
     .widget-area {
@@ -143,14 +160,15 @@
         margin-top: 51px;
         z-index: 40;
         opacity: 0;
-        font-size: $font-size-sm1;
+        font-size: $font-size-body3;
         @include tablet {
             flex-direction: column;
-            font-size: $font-size-sm2;
+            font-size: $font-size-body4;
             gap: 10px;
         }
-        span { flex:1; }
-        a { flex:1; }
+
+        .widget-link { flex:1; }
+        .widget-rights { flex:1; }
     }
 }
 

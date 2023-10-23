@@ -1,69 +1,8 @@
 $(function(){
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.matchMedia({
-         // 1025보다 큰 화면일 때
-        "(min-width: 1025px)": function() {
-
-            /**
-             *  스크롤 시, 헤더 스타일 변경
-            */
-            $(window).scroll(function(){
-                usrScroll = $(this).scrollTop();
-                if ( usrScroll > 0 ) {
-                    $('.header').addClass('on');
-                } else {
-                    $('.header').removeClass('on');
-                }
-            });
-
-            /** 
-             * 스크롤 시, SC-BRNAD 텍스트 빠르게 올라가는 모션 
-            */
-            gsap.set('.sc-brand .inner', { yPercent: 80 })
-            textBox = document.querySelectorAll('.sc-brand .inner');
-            textBox.forEach(element => {
-                gsap.to(element, {
-                    scrollTrigger: {
-                        trigger: element.parentElement,
-                        start: "0% 100%",
-                        scrub: 3,
-                    },
-                    yPercent: -60,
-                })
-            });
-
-            /**
-             * Select Project 가로 스크롤
-            */ 
-            gsap.to('.group-list', {
-                scrollTrigger: {
-                    trigger: '.sc-project',
-                    start: '0% 0%',
-                    end: '+=500%',
-                    pin: true,
-                    scrub: 3,
-                },
-                xPercent: -500
-            })
-
-            /** 
-             * SC-NEWS 차례대로 올라오는 모션
-            */
-            newsList = document.querySelectorAll('.news-item');
-            gsap.set(newsList, { yPercent: 50, opacity: 0 })
-            newsList.forEach(element => {
-                gsap.to(element, {
-                    scrollTrigger: {
-                        trigger: element,
-                        start: "-50% 80%",
-                    },
-                    yPercent: 0,
-                    opacity: 1
-                })
-            });
-        },
-        // 모든 화면
-        "all": function() {
+        // 1024px 이상
+        "(min-width: 1024px)": function() {
             /** 
              * 마우스 스토커
              */ 
@@ -78,7 +17,7 @@ $(function(){
             $(window).on('mousemove', mouseFollower);
 
             /** 
-             * 마우스커서 올리면 버튼 움직이는 모션
+             * 마우스커서 올리면 버튼 움직이는 애니메이션
              */ 
             function moveBtn(e) {
                 x = (-($(this).width()/2) + e.offsetX) * 0.3
@@ -88,6 +27,7 @@ $(function(){
 
             /** 
              *  헤더 메뉴 버튼
+             * - 메뉴 아이콘에 마우스 온, 아이콘 좌표 이동
              */
             $('.header .btn-menu').on('mousemove', moveBtn);
 
@@ -110,9 +50,6 @@ $(function(){
                     transform: 'translate(0%, 0%)'
                 })
                 $('.cursor').removeClass('zoom-sm');
-                gsap.to('.cursor', {
-                    
-                })
             });
             
             $('.link-more').on('mousemove', moveBtn);
@@ -121,6 +58,18 @@ $(function(){
             })
 
             $('.btn-scroll').on('mousemove', moveBtn);
+
+            /**
+             *  스크롤 시, 헤더 스타일 변경
+            */
+            $(window).scroll(function(){
+                usrScroll = $(this).scrollTop();
+                if ( usrScroll > 0 ) {
+                    $('.header').addClass('on');
+                } else {
+                    $('.header').removeClass('on');
+                }
+            });
 
             /** 
              * 섹션별 커서 스타일
@@ -156,10 +105,27 @@ $(function(){
                 }
             })
 
+            /**
+             * Select Project 가로 스크롤
+            */ 
+            gsap.to('.group-list', {
+                scrollTrigger: {
+                    trigger: '.sc-project',
+                    start: '0% 0%',
+                    end: '+=500%',
+                    pin: true,
+                    scrub: 3,
+                },
+                xPercent: -500
+            })
+
+        },
+        // 모든 화면
+        "all": function() {
             /** 
-             *  GNB 모션
+             *  GNB 애니메이션
              */
-            gsap.set('.gnb .overflow .link-gnb', { yPercent: -100 })
+            gsap.set('.gnb .overflow .link-gnb', { yPercent: -200 })
             gnbMotion = gsap.timeline({ paused: true })
             gnbMotion
             .set('.gnb',{'visibility':'visible'})
@@ -190,8 +156,18 @@ $(function(){
                 delay: 0.5
             })
 
+            gsap.to('.sc-visual .text-box', {
+                scrollTrigger: {
+                    trigger: '.sc-visual .text-box',
+                    start: "0% 10%",
+                    end: "100% 100%",
+                    scrub: 3,
+                },
+                yPercent: -60,
+            })
+
             /** 
-             * (공통) 스크롤마다 텍스트 올라오는 모션
+             * (공통) 스크롤마다 텍스트 올라오는 애니메이션
              */ 
             textList = document.querySelectorAll('.overflow .text');
             textList.forEach(element => {
@@ -206,7 +182,7 @@ $(function(){
             });
 
             /** 
-             * (공통) img box 옆쪽에서 나타나는 모션
+             * (공통) img box 옆쪽에서 나타나는 애니메이션
              */ 
             imgBoxList = document.querySelectorAll('.img-area .bg');
             imgBoxList.forEach(element => {
@@ -220,10 +196,26 @@ $(function(){
             });
 
             /** 
-             *  SC-INTRO 스크롤 시 이미지 움직이는 모션
+             * 스크롤 시, SC-BRNAD 텍스트 빠르게 올라가는 애니메이션 
+            */
+            gsap.set('.sc-brand .inner', { yPercent: 80 })
+            textBox = document.querySelectorAll('.sc-brand .inner');
+            textBox.forEach(element => {
+                gsap.to(element, {
+                    scrollTrigger: {
+                        trigger: element.parentElement,
+                        start: "0% 100%",
+                        scrub: 3,
+                    },
+                    yPercent: -40,
+                })
+            });
+
+            /** 
+             *  SC-INTRO 스크롤 시 이미지 움직이는 애니메이션
              */
             imgList = document.querySelectorAll('.sc-intro .img-area img');
-            gsap.set('.sc-intro .img-area img', { scale: 1.5 })
+            gsap.set('.sc-intro .img-area img', { scale: 1.2 })
             imgList.forEach(element => {
                 xValue = element.dataset.x;
                 gsap.to(element, {
@@ -233,6 +225,22 @@ $(function(){
                         scrub: 1,
                     },
                     x: xValue
+                })
+            });
+
+            /** 
+             * SC-NEWS 차례대로 올라오는 애니메이션
+            */
+            newsList = document.querySelectorAll('.news-item');
+            gsap.set(newsList, { yPercent: 50, opacity: 0 })
+            newsList.forEach(element => {
+                gsap.to(element, {
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "-50% 80%",
+                    },
+                    yPercent: 0,
+                    opacity: 1
                 })
             });
         }

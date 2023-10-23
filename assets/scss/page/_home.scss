@@ -1,65 +1,50 @@
-.br-mb {
-    display: none;
-    @include mobile { display: block; }
-}
+/*** SC-VISUAL ***/
 .sc-visual {
     position: relative;
     height: 100vh;
 
-    .inner { position: relative; height: 100vh; }
-    
+    .inner { 
+        position: relative; 
+        height: 100vh; 
+    } 
     .bg-video { 
         position: absolute;
-        top: 50%; transform: translateY(-50%);
-        width: 100%; height: 100%;
+        top: 50%; 
+        transform: translateY(-50%);
+        width: 100%; 
+        height: 100%;
         object-fit: cover
     }
     .text-box {
         @include positionCenter;
         width: 100%;
-        font-size: min(8vw, 100px);
+        font-size: $font-size-heading1;
         letter-spacing: 0em;
         line-height: 1.2em;
         font-weight: 200;
-        @include mobile { font-size: 12.4vw; }
-
+        @include mobile { font-size: clamp(4.2rem, 9vw, 12vw); }
+    }
     .visual-oh { 
         display: block; 
         position: relative; 
         overflow: hidden; 
         text-align: center;  
-    }
-    .visual-oh .text { display: block; transform: translateY(100%); }
+
+        .text {
+            display: block; 
+            transform: translateY(100%); 
+        }
     }
 }
 
+/*** SC-BRAND ***/
 .sc-brand {
     .group-brand {
         @include flexVerticalCenter;
         height: 100vh;
-        @include mobile {
+        @include tablet {
             align-items: flex-end;
             padding-bottom: 60px;
-        }
-
-        &.brand1 {
-            @include bg('../images/home_rozy.png');
-            background-color: #13374B;
-            background-position: top right;
-            background-size: cover;
-        }
-        &.brand2 {
-            @include bg('../images/home_hogonheil.png');
-            background-color:#B0CFD4;;
-            background-position: bottom left;
-            background-size: contain;
-        }
-        &.brand3 {
-            @include bg('../images/home_ryuid.jpg');
-            background-color:#E1ECED;;
-            background-position: bottom right;
-            background-size: contain;
-            color: $color-black;
         }
         &:nth-child(2n+1){
             justify-content: end;
@@ -69,106 +54,155 @@
                 text-align: left;
             }
         }
+
         .eng {
-            @include fontSet($font-size-lg3);
+            font-size: $font-size-heading4;
             font-weight: 400;
+            line-height: 1.2em;
         }
         .kr {
-            @include fontSet($font-size-md2);
-            font-weight: 600;
             margin-top: 20px;
+            font-size: $font-size-body2;
+            font-weight: 600;
+            line-height: 1.2em;
+        }
+    }
+    .brand1 {
+        @include bg('../images/home_rozy.png');
+        background-position: top right;
+        background-size: cover;
+        background-color: #13374B;
+    }
+    .brand2 {
+        @include bg('../images/home_hogonheil.png');
+        background-position: bottom left;
+        background-size: contain;
+        background-color:#B0CFD4;;
+        @include tablet {
+            background-position: center center;
+            background-size: cover;
+        }
+        
+        .text { 
+            display: inline-block; 
+            @include mobile { display: block; }
+        }
+    }
+    .brand3 {
+        @include bg('../images/home_ryuid.jpg');
+        background-position: bottom right;
+        background-size: contain;
+        background-color:#E1ECED;;
+        color: $color-black;
+        @include tablet {
+            background-position: center center;
+            background-size: cover;
+        }
+        
+        .text {
+            display: inline-block; 
+            @include mobile { display: block; }
         }
     }
 }
 
+/*** SC-INTRO ***/
 .sc-intro {
     width: 100%;
     background-color: $color-black;
 
     .group-intro {
         @include flexVerticalCenter;
-        height: 480px;
+        height: max(480px, 30vw);
         overflow: hidden;
         @include tablet {
             height: 100%;
             flex-direction: column;
         }
-
-        .column {
-            display: flex;
-            flex-direction: column;
-            width: 50%; 
-            height: 100%;
-            @include tablet { width: 100%; }
-        }
-        .column.right { 
-            @include flexHorizonCenter;
-            padding: 7vw;
-        }
-        .img-area {
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
-        .bg {
-            position: absolute;
-            top: 0; left: 0;
-            width: 102%;
-            height: 100%;
-            background: #000;
-            z-index: 2;
-        }
-        .img-box {
-            position: absolute;
-            top: 0; right: 0;
-            width: 100%; height: 100%;
-            @include tablet {
-                position: static;
+        &:nth-child(2n+1) {
+            flex-direction: row-reverse;
+            @include tablet { flex-direction: column; }
+            @include mobile { .img-box { left: 5%; } }
+            
+            .bg { 
+                left: inherit; 
+                right: 0; 
             }
         }
-        .img-area img {
-            display: block;
-            width: 100%; height: 100%;
-            object-fit: cover;
-        }
-        .text-area {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .title {
-            @include fontSet($font-size-lg1);
-            font-weight: 600;
-        }
-        .title-desc {
-            @include fontSet($font-size-md1);
-            font-weight: 600;
-        }
-        .desc {
-            @include fontSet($font-size-sm1);
-            font-weight: 600;
-            line-height: 1.6em;
-        } 
     }
-    .group-intro:nth-child(2n+1) {
-        flex-direction: row-reverse;
-        @include tablet { flex-direction: column; }
+    .column {
+        display: flex;
+        flex-direction: column;
+        width: 50%; 
+        height: 100%;
+        @include tablet { width: 100%; }
 
-        .img-area .img-box {
-            position: absolute;
-            top: 0; left: 0;
-            @include tablet { position: static; }
+        &.right {
+            @include flexHorizonCenter;
+            padding: 7vw 5vw;
+            @include mobile { padding: 50px 20px; }
         }
-        .bg { left: inherit; right: 0; }
     }
+    .img-area {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+        @include tablet { padding-bottom: calc(500 / 700 * 100%); }
+    }
+    .bg {
+        position: absolute;
+        top: 0; 
+        left: 0;
+        width: 102%;
+        height: 100%;
+        background: #000;
+        z-index: 2;
+    }
+    .img-box {
+        position: absolute;
+        top: 0; 
+        left: 0;
+        width: 100%; 
+        height: 100%;
+        @include mobile { left: -5% }
+    }
+    .intro-img {
+        display: block;
+        width: 100%; 
+        height: 100%;
+        object-fit: cover;
+    }
+    .text-area {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .title {
+        font-size: $font-size-heading2;
+        font-weight: 600;
+        line-height: 1.2em;
+    }
+    .title-desc {
+        font-size: $font-size-body1;
+        font-weight: 600;
+        line-height: 1.2em;
+    }
+    .desc {
+        font-size: $font-size-body3;
+        font-weight: 600;
+        line-height: 1.6em;
+    } 
+    .btn-area { margin-top: 40px; }
 }
 
 // headline
 .headline { 
-    @include fontSet($font-size-lg2);
+    font-size: $font-size-heading3;
     font-weight: bold;
+    line-height: 1.2em;
 }
 
+/*** SC-PROJECT ***/
 .sc-project {
     .wrap {
         display: flex;
@@ -189,10 +223,13 @@
         @include tablet { width: 100%; }
 
         &.title {
-            height: 100%;
             @include tablet { padding: 100px 0; }
+            height: 100%;
 
-            .text-box { position: static; transform: none}
+            .text-box { 
+                position: static; 
+                transform: none;
+            }
         }
         .text-box {
             @include positionVerticalCenter;
@@ -209,11 +246,18 @@
         .img-area {
             position: relative;
             overflow: hidden;
-            width: 100%; height: 100vh;
+            width: 100%; 
+            height: 100%;
+            @include tablet { 
+                height: 0; 
+                padding-bottom: calc(240 / 900 * 100%); 
+            }
+            @include mobile { padding-bottom: 100%; }
         }
         .bg {
             position: absolute;
-            top: 0; right: 0;
+            top: 0; 
+            right: 0;
             width: 102%;
             height: 100%;
             background: #000;
@@ -221,35 +265,42 @@
         }
         .img-box {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0; 
+            left: 0;
+            width: 100%; 
+            height: 100%;
         }
-        .img-area video, .img-area img {
+        .project-video, .project-img {
             display: block;
-            width: 100%; height: 100%;
+            width: 100%; 
+            height: 100%;
             object-fit: cover;
         }
-        img { object-position: center 20%; }
-        a {
-            @include fontSet($font-size-md1);
+        .project-img { object-position: center 20%; }
+        .link-view {
             @include linkHover;
+            font-size: $font-size-body1;
             font-weight: 600;
-
             position: relative;
         }
         .word { 
-            font-size: $font-size-sm3; 
             margin-bottom: 1.2em;
+            font-size: $font-size-body4; 
             font-weight: bold;
         }
     }
 }
 
+/*** SC-NEWS ***/
 .sc-news {
     background-color: $color-black;
     padding-top: 130px;
     padding-bottom: 180px;
 
+    .inner { 
+        max-width: 1380px; 
+        margin: 0 auto; 
+    }
     .headline { padding-bottom: 100px; }
     .news-item {
         @include flexVerticalCenter;
@@ -257,49 +308,50 @@
         position: relative;
         height: 320px;
         border-top: 1px solid #444;
-        @include tablet {
-            height: auto;
-        }
+        @include tablet { height: auto; }
+        &:last-child { border-bottom: 1px solid #444; }
+        &:hover {
+            .img-area::after {
+                visibility: inherit;
+                opacity: 0.6;
+            }
+            .link-view:hover::after {
+                text-decoration: underline;
+                text-underline-position: under;
+                transform: scaleX(100%);
+            }
+        } 
 
-        &:hover .img-area::after {
-            visibility: inherit;
-            opacity: 0.6;
-        }
         .link-view::after {
-            position: absolute;
             content: '';
-            bottom: 0 ; left: 0;
             display: inline-block;
+            position: absolute;
+            bottom: 0 ; 
+            left: 0;
             background-image: linear-gradient(#fff, #fff);
             background-position: 100% 100%;
             background-repeat: no-repeat;
             background-size: 100% 1px;
-            width: auto; height: 2px;
+            width: auto; 
+            height: 2px;
         }
-        &:hover .link-view:hover::after {
-            text-decoration: underline;
-            text-underline-position: under;
-            transform: scaleX(100%);
-        }
-
-        &:last-child { border-bottom: 1px solid #444; }
     }
     .img-area {
         @include imgAfter;
-        position: relative;
-        width: 320px;
-        height: 100%;
-        transition: 0.4s;
         @include tablet { 
             width: 100%;
             height: auto;
             padding-bottom: 100%;
         }
-        
-        img { 
-            object-fit: cover; 
+        position: relative;
+        width: 320px;
+        height: 100%;
+        transition: 0.4s;
+
+        .news-img { 
             width: 100%; 
             height: 100%; 
+            object-fit: cover; 
             @include tablet {
                 position: absolute;
                 top: 50%;
@@ -308,7 +360,10 @@
             }
         }
     }
-    .btn-area { text-align: center; }
+    .btn-area { 
+        margin-top: 50px;
+        text-align: center;
+    }
     .text-area {
         @include flexVerticalCenter;
         position: absolute;
@@ -321,11 +376,15 @@
             gap: 10px;
         }
 
-        .date-box { width: 350px; }
+        .date-box {
+            width: 350px; 
+            @include mobile { width: 100%; } 
+        }
         .date { 
-            font-size: $font-size-sm1;
-            font-weight: bold; 
             font-family: Pretendard, sans-serif; 
+            font-size: $font-size-body3;
+            font-weight: bold; 
+            line-height: 1.2em;
         }
         .title-box {
             display: flex;
@@ -334,17 +393,18 @@
             flex: 1;
         }
         .cate {
-            font-size: $font-size-sm3;
             display: block;
-            color: $color-white;
             margin-bottom: 8px;
+            font-size: $font-size-body4;
+            color: $color-white;
         }
         .link-view { 
-            @include fontSet($font-size-md1);
-            font-weight: 600;
             position: relative;
+            font-size: $font-size-body1;
+            font-weight: 600;
+            line-height: 1.2em;
         }
-        .link-view .title {
+        .title {
             display: inline;
             position: relative;
             background-size: 0% 0.07em;
@@ -352,10 +412,10 @@
             background-repeat: no-repeat;
             background-image: linear-gradient(#fff, #fff);
             transition: background-size 0.4s ease;
-        }
-        .link-view .title:hover {
-            background-size: 100% 0.07em;
-            background-position: 0% 100%;
+            &:hover {
+                background-size: 100% 0.07em;
+                background-position: 0% 100%;
+            }
         }
     }
 }

@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOCUS-X</title>
     <link rel="stylesheet" href="./assets/css/style.css"> 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
-    <script src="./assets/js/main.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
+    <script defer src="./assets/js/main.js"></script>
 </head>
 <body>
     <div class="wrapper">
         <header class="header">
             <div class="inner">
                 <h1 class="logo-area">
-                    <a href="" class="logo"><img src="./assets/images/logo.svg" alt="locus-x"></a>
+                    <a href="" class="logo"><img src="./assets/images/logo.svg" class="logo-img" alt="locus-x"></a>
                 </h1>
                 <div class="menu-area">
                     <button type="button" class="btn-menu">
@@ -72,8 +72,8 @@
                     </ul>
                 </nav>
                 <div class="widget-area">
-                    <a href="">LOCUS · LOCUS VFX · LOCUS Animation · SIDUS</a>
-                    <span>© 2023 LOCUS-X Inc. All rights reserved. Creat</span>
+                    <a href="" class="widget-link">LOCUS · LOCUS VFX · LOCUS Animation · SIDUS</a>
+                    <span class="widget-rights">© 2023 LOCUS-X Inc. All rights reserved. Creat</span>
                 </div>
             </div>
         </div>
@@ -115,10 +115,10 @@
                             <strong class="eng">
                                 <span class="overflow"><span class="text">Virtual humans </span></span>
                                 <span class="overflow"><span class="text">beyond anyone's</span></span>
-                                <span class="overflow"><span class="text">imagination, LOCUS-X</span></span>
+                                <span class="overflow"><span class="text">imagination,&nbsp;</span><span class="text">LOCUS-X</span></span>
                             </strong>
                             <p class="overflow kr">
-                                <span class="text">모든 상상을 현실로 버추얼 휴먼, LOCUS-X</span>
+                                <span class="text">모든 상상을 현실로 버추얼 휴먼,&nbsp;<span class="text">LOCUS-X</span></span>
                             </p>
                         </div>
                     </div>
@@ -129,10 +129,10 @@
                             <strong class="eng">
                                 <span class="overflow"><span class="text">Virtual humans</span></span>
                                 <span class="overflow"><span class="text">beyond human</span></span>
-                                <span class="overflow"><span class="text">communication,</span></span>
+                                <span class="overflow"><span class="text">communication,&nbsp;</span><span class="text">LOCUS-X</span></span>
                             </strong>
                             <p class="overflow kr">
-                                <span class="text">인간의 소통을 초월한 버추얼 휴먼, LOCUS-X</span>
+                                <span class="text">인간의 소통을 초월한 버추얼 휴먼,&nbsp;<span class="text">LOCUS-X</span></span>
                             </p>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
                         <div class="img-area">
                             <!-- 애니메이션용 bg -->
                             <span class="bg"></span>
-                            <div class="img-box"><img src="./assets/images/intro1.jpg" alt="버추얼 인플루언서 로지" data-x="80"></div>
+                            <div class="img-box"><img src="./assets/images/intro1.jpg" class="intro-img" alt="버추얼 인플루언서 로지" data-x="50"></div>
                         </div>
                     </div>
                     <div class="column right">
@@ -173,7 +173,7 @@
                         <div class="img-area">
                             <!-- 애니메이션용 bg -->
                             <span class="bg"></span>
-                            <div class="img-box"><img src="./assets/images/intro2.jpg" alt="버추얼 패밀리 호곤해일"  data-x="-80"></div>
+                            <div class="img-box"><img src="./assets/images/intro2.jpg" class="intro-img" alt="버추얼 패밀리 호곤해일"  data-x="-50"></div>
                         </div>
                     </div>
                     <div class="column right">
@@ -201,7 +201,7 @@
                         <div class="img-area">
                             <!-- 애니메이션용 bg -->
                             <span class="bg"></span>
-                            <div class="img-box"><img src="./assets/images/intro3.jpg" alt="버추얼 휴먼 류이드" data-x="80"></div>
+                            <div class="img-box"><img src="./assets/images/intro3.jpg" class="intro-img" alt="버추얼 휴먼 류이드" data-x="50"></div>
                         </div>
                     </div>
                     <div class="column right">
@@ -243,7 +243,7 @@
                         <div class="img-area">
                             <!-- 애니메이션용 bg -->
                             <span class="bg"></span>
-                            <div class="img-box"><video src="./assets/images/project1.mp4" alt="신한 로지종신보험 광고" autoplay loop muted></video></div>
+                            <div class="img-box"><video src="./assets/images/project1.mp4" class="project-video" alt="신한 로지종신보험 광고" autoplay loop muted></video></div>
                         </div>
                     </div>
                     <div class="group-list">
@@ -254,7 +254,7 @@
                         <div class="img-area">
                             <!-- 애니메이션용 bg -->
                             <span class="bg"></span>
-                            <div class="img-box"><video src="./assets/images/project2.mp4" alt="롯데 칠성 제로라이프 류이드 광고" autoplay loop muted></video></div>
+                            <div class="img-box"><video src="./assets/images/project2.mp4" class="project-video" alt="롯데 칠성 제로라이프 류이드 광고" autoplay loop muted></video></div>
                         </div>
                     </div>
                     <div class="group-list">
@@ -265,7 +265,7 @@
                         <div class="img-area">
                             <!-- 애니메이션용 bg -->
                             <span class="bg"></span>
-                            <div class="img-box"><video src="./assets/images/project3.mp4" alt="볼보 C40 로지 광고" autoplay loop muted></video></div>
+                            <div class="img-box"><video src="./assets/images/project3.mp4" class="project-video" alt="볼보 C40 로지 광고" autoplay loop muted></video></div>
                         </div>
                     </div>
                     <div class="group-list">
@@ -276,7 +276,7 @@
                         <div class="img-area">
                             <!-- 애니메이션용 bg -->
                             <span class="bg"></span>
-                            <div class="img-box"><img src="./assets/images/project4.jpg" alt="로지 판도라 광고"></img></div>
+                            <div class="img-box"><img src="./assets/images/project4.jpg" class="project-img" alt="로지 판도라 광고"></img></div>
                         </div>
                     </div>
                     <div class="group-list">
@@ -287,7 +287,7 @@
                         <div class="img-area">
                             <!-- 애니메이션용 bg -->
                             <span class="bg"></span>
-                            <div class="img-box"><img src="./assets/images/project5.jpg" alt="로지 캘빈클라인 광고"></img></div>
+                            <div class="img-box"><img src="./assets/images/project5.jpg" class="project-img" alt="로지 캘빈클라인 광고"></img></div>
                         </div>
                     </div>
                     <div class="group-list">
@@ -298,7 +298,7 @@
                         <div class="img-area">
                             <!-- 애니메이션용 bg -->
                             <span class="bg"></span>
-                            <div class="img-box"><img src="./assets/images/project6.jpg" alt="로지 질스튜어트 광고"></img></div>
+                            <div class="img-box"><img src="./assets/images/project6.jpg" class="project-img" alt="로지 질스튜어트 광고"></img></div>
                         </div>
                     </div>
                 </div>
@@ -312,7 +312,7 @@
                     <ul class="news-list">
                         <li class="news-item">
                             <div class="img-area">
-                                <img src="./assets/images/news1.jpg" alt="2022 케이블TV방송대상 스타상 ROZY">
+                                <img src="./assets/images/news1.jpg" class="news-img" alt="2022 케이블TV방송대상 스타상 ROZY">
                             </div>
                             <div class="text-area">
                                 <div class="date-box">
@@ -326,7 +326,7 @@
                         </li>
                         <li class="news-item">
                             <div class="img-area">
-                                <img src="./assets/images/news2.jpg" alt="디자인코리아 2022 홍보대사 선정 ROZY">
+                                <img src="./assets/images/news2.jpg" class="news-img" alt="디자인코리아 2022 홍보대사 선정 ROZY">
                             </div>
                             <div class="text-area">
                                 <div class="date-box">
@@ -340,7 +340,7 @@
                         </li>
                         <li class="news-item">
                             <div class="img-area">
-                                <img src="./assets/images/news3.jpg" alt="ROZY 친환경 브랜드 TZRZ 이미지">
+                                <img src="./assets/images/news3.jpg" class="news-img" alt="ROZY 친환경 브랜드 TZRZ 이미지">
                             </div>
                             <div class="text-area">
                                 <div class="date-box">
@@ -354,7 +354,7 @@
                         </li>
                         <li class="news-item">
                             <div class="img-area">
-                                <img src="./assets/images/news4.jpg" alt="RYU-ID 서울 패션위크 앰버서더 이미지">
+                                <img src="./assets/images/news4.jpg" class="news-img" alt="RYU-ID 서울 패션위크 앰버서더 이미지">
                             </div>
                             <div class="text-area">
                                 <div class="date-box">

@@ -4,11 +4,11 @@ $color-black: #000;
 $bg-color-dark-1: #181818;
 
 /* FONT SIZE */
-$font-size-lg1: 8rem;
-$font-size-lg2: 6.8rem; 
-$font-size-lg3: 4.6rem; 
-$font-size-md1: 2.8rem; 
-$font-size-md2: 2.1rem; 
-$font-size-sm1: 1.6rem; 
-$font-size-sm2: 1.4rem; 
-$font-size-sm3: 1.3rem; 
+$font-size-heading1: clamp(5.4rem, 7vw, 12.6rem);
+$font-size-heading2: clamp(4.6rem, 6vw, 10.2rem);
+$font-size-heading3: clamp(4.0rem, 5vw, 8rem);
+$font-size-heading4: clamp(3.2rem, 3vw, 5.2rem);
+$font-size-body1: clamp(2.4rem, 4vw, 3.2rem);
+$font-size-body2: clamp(1.8rem, 2vw, 2.4rem);
+$font-size-body3: clamp(1.5rem, 1.6vw, 1.8rem);
+$font-size-body4: 1.3rem;

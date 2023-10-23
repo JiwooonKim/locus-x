@@ -2,27 +2,44 @@
 html { 
     scroll-behavior: smooth; 
     font-size: 62.5%;
+    height: 100%;
 }
-
-body { overflow-x: hidden; }
-
+body { 
+    overflow-x: hidden; 
+    height: 100%; 
+}
+.wrapper { height: 100%; }
 /* LAYOUT */ 
 .inner { 
     padding: 0 120px; 
-    @include tablet { padding: 0 20px;}
+    @include tablet { padding: 0 20px; }
 }
 
 /* STYLE */
 .blind {
     position: absolute;
-    width: 1px; height: 1px;
+    width: 1px; 
+    height: 1px;
     overflow: hidden;
-    clip: rect(0 0 0 0);
     margin: -1px;
+    clip: rect(0 0 0 0);
 }
 
-.overflow { display: block; position: relative; overflow: hidden; }
-.overflow .text { display: block; transform: translateY(100%);}
+.overflow { 
+    display: block; 
+    position: relative; 
+    overflow: hidden; 
+
+    .text {
+        display: block; 
+        transform: translateY(100%);
+    }
+}
+
+.br-mb {
+    display: none;
+    @include mobile { display: block; }
+}
 
 .removeScroll { overflow-y: hidden; }
 
@@ -31,41 +48,51 @@ body { overflow-x: hidden; }
     z-index: 50;
     pointer-events: none;
     mix-blend-mode: difference;
+    &.zoom-sm { 
+        mix-blend-mode: inherit; 
 
-    &.zoom-sm { mix-blend-mode: inherit; }
-    
-    &.view  { mix-blend-mode: inherit; }
-    
-    .pointer {
-        position: absolute;
-        top: 0; left: 0;
-        transform: translate(-50%, -50%);
-        width: 50px; height: 50px;
-        border-radius: 50%;
-        border: 2px solid $color-white;
-        transition: 0.3s;
+        .pointer { 
+            width: 80px; 
+            height: 80px; 
+        }
     }
-    &.zoom-sm .pointer { width: 80px; height: 80px;  }
+    &.view  { 
+        mix-blend-mode: inherit; 
+
+        .pointer {
+            position: relative;
+            overflow: hidden;
+            width: 130px;
+            height: 130px;
+            line-height: 130px;
+            background: $color-white;
+            cursor: none;
+            mix-blend-mode:normal;
+            border: 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: $font-size-body4;
+            color: $color-black;
+        }
+    }
     &.zoom .pointer { width: 130px; height: 130px; }
-    &.view .pointer {
-        position: relative;
-        width: 130px; height: 130px;
-        line-height: 130px;
-        background: $color-white;
-        border: 0;
-        cursor: none;
-        mix-blend-mode:normal;
-        color: $color-black;
-        text-align: center;
-        font-weight: bold;
-        font-size: $font-size-sm2;
-        overflow: hidden;
-    }
     &.blend .pointer {
         width: 80px; height: 80px;
         mix-blend-mode: difference;
         background: $color-white;
         border: 0;
+    }
+    
+    .pointer {
+        position: absolute;
+        top: 0; 
+        left: 0;
+        width: 50px; 
+        height: 50px;
+        transform: translate(-50%, -50%);
+        transition: 0.3s;
+        border-radius: 50%;
+        border: 2px solid $color-white;
     }
 }
 
