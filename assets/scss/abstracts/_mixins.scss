@@ -1,26 +1,5 @@
 @mixin inner { padding: 0 120px; }
 
-/* STYLE */
-@mixin fontSet($size) {
-    font-size: $size;
-    letter-spacing: 0em;
-    line-height: 1.2em;
-
-    // @include tablet {
-    //     @if ( $size == $font-size-lg1 ) {
-    //         font-size: calc($size - ($size * 0.23));
-    //     } @else if ( $size == $font-size-lg2 ) {
-    //         font-size: calc($size - 1.8rem);
-    //     } @else if ( $size == $font-size-lg3 ) {
-    //         font-size: calc($size - 1.4rem);
-    //     } @else if ( $size == $font-size-md1 ) {
-    //         font-size: calc($size - 0.4rem);
-    //     } @else if ( $size == $font-size-md2 ) {
-    //         font-size: calc($size - 0.6rem);
-    //     } 
-    // }
-}
-
 /* HOVER */
 @mixin imgAfter {
     &::after {
@@ -71,7 +50,7 @@
     }
 }
 
-/* LOCATION */
+/* LAYOUT */
 @mixin flexCenter() {
     display: flex;
     justify-content: center;

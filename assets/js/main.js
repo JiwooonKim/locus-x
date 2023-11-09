@@ -118,7 +118,6 @@ $(function(){
                 },
                 xPercent: -500
             })
-
         },
         // 모든 화면
         "all": function() {
@@ -126,10 +125,10 @@ $(function(){
              *  GNB 애니메이션
              */
             gsap.set('.gnb .overflow .link-gnb', { yPercent: -200 })
-            gnbMotion = gsap.timeline({ paused: true })
-            gnbMotion
+            gnbTl = gsap.timeline({ paused: true })
+            gnbTl
             .set('.gnb',{'visibility':'visible'})
-            .to('.gnb .gnb-bg', { delay: 0.3, height: '127%'})
+            .to('.gnb .gnb-bg', { delay: 0.3, height: '127%' })
             .to ('.gnb .widget-area', { opacity: 1 })
             .to('.overflow .link-gnb', { yPercent: 0 })
 
@@ -142,14 +141,15 @@ $(function(){
                 $('body').toggleClass('removeScroll');  
                 
                 if ( $('.gnb').hasClass('on') ) {
-                    gnbMotion.reverse();
+                    gnbTl.reverse();
                     $('.gnb').removeClass('on');
                 } else {
-                    gnbMotion.restart();
+                    gnbTl.restart();
                     $('.gnb').addClass('on');
                 }
             });
             
+            // sc-visual 애니메이션
             gsap.to('.visual-oh .text', {
                 y: 0,
                 stagger: 0.4,

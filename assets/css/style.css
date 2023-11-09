@@ -1,6 +1,5 @@
-/* STYLE */
 /* HOVER */
-/* LOCATION */
+/* LAYOUT */
 /* RESPONSIVE */
 /* ETC */
 /*  COLOR */
@@ -118,10 +117,6 @@ body {
   height: 100%;
 }
 
-.wrapper {
-  height: 100%;
-}
-
 /* LAYOUT */
 .inner {
   padding: 0 120px;
@@ -217,6 +212,11 @@ body {
   transition: 0.3s;
   border-radius: 50%;
   border: 2px solid #fff;
+}
+@media (max-width: 1023px) {
+  .cursor .pointer {
+    display: none;
+  }
 }
 
 .header {
